@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Home Section Design -->
+<section class="home" id="home">
+    <div class="container-fluid py-5">
+        <div class="row align-items-center">
+            <!-- Left Column (Text Content) -->
+            <div class="col-md-6 text-center text-md-start">
+                <h3>Hello, It's Me</h3>
+                <h1>Asile Ayuba</h1>
+                <h3>And I'm <span id="typewriter"></span
+                    ><span id="cursor"></span></h3>
+                <p class="lead">
+                    I'm a backend developer focused on building efficient systems with clean code and seamless performance. 
+                    Let’s create something impactful together!
+                </p>
+                <div class="social-media my-4">
+                    <!-- LinkedIn Button -->
+                    <a href="https://www.linkedin.com/in/asileayuba" class="btn btn-outline-primary mx-2">
+                        <i class="fa-brands fa-linkedin"></i> LinkedIn
+                    </a>
+                    <!-- 𝕏 Button -->
+                    <a href="https://twitter.com/asileayuba" class="btn btn-outline-info mx-2">
+                        <i class="fa-brands fa-x-twitter"></i> Twitter
+                    </a>                    
+                    <!-- GitHub Button -->
+                    <a href="https://github.com/asileayuba" class="btn btn-outline-light mx-2">
+                        <i class="fa-brands fa-github"></i> GitHub
+                    </a>
+                </div>
+                <a href="{{ profile.resume.url }}" class="btn btn-success">Download Resume</a>
+            </div>
+
+            <!-- Right Column (Image) -->
+            <div class="col-md-6 mt-4 text-center">
+                <img src="{{ home.profile_image.url }}" alt="Home-Image" class="img-fluid rounded-circle">
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

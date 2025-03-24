@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-3">
+    <h2 class="text-center mb-4 display-5 fw-bold">My Projects</h2>
+    <div class="row">
+        {% for project in projects %}
+        <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card shadow-sm h-100">
+                {% if project.image %}
+                <img src="{{ project.image.url }}" class="card-img-top" alt="{{ project.title }}">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ project.title }}</h5>
+                    <p class="card-text">{{ project.description }}</p>
+                    <p><strong>Technologies:</strong> {{ project.technologies }}</p>
+                    <div class="d-flex justify-content-between">
+                        {% if project.github_link %}
+                        <a href="{{ project.github_link }}" class="btn btn-outline-primary btn-sm" target="_blank">GitHub</a>
+                        {% endif %}
+                        {% if project.live_demo %}
+                        <a href="{{ project.live_demo }}" class="btn btn-primary btn-sm" target="_blank">Live Demo</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p class="text-center">No projects available at the moment.</p>
+        {% endfor %}
+    </div>
+</div>
+{% include "footer.html" %}
+{% endblock %}

@@ -1,0 +1,124 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+
+<div class="vanta-bg" style="height: 100vh;">
+  {% block content %}
+<!-- Hero Section -->
+<section class="about-hero text-center text-white d-flex align-items-center justify-content-center">
+  <div>
+    <h1 class="display-5 fw-bold">About Me</h1>
+    <p id="typed-text" class="lead underline"></p>
+  </div>
+</section>
+
+<!-- About Me Section -->
+<section class="container py-5">
+  <div class="row align-items-center">
+    <div class="col-md-5 text-center mb-4">
+      <img
+        src="{{ profile.profile_image.url }}"
+        class="rounded float-start custom-img"
+        alt="Profile Picture"
+      />
+    </div>
+    <div class="col-md-7">
+      <h2>Who Am I?</h2>
+      <p class="lead">
+        I am {{ profile.name }}, a passionate <b>Web Developer</b>,
+        <b>AI Enthusiast</b>, and <b>Aerospace Engineering Student</b>. With a
+        strong foundation in <b>Python, Django, JavaScript, and Node.js</b>, I
+        create efficient, scalable, and user-friendly applications. I aim to
+        bridge the gap between <b>technology and innovation</b>, especially in
+        AI and aviation.
+      </p>
+      <p>
+        Beyond coding, I enjoy sharing knowledge, mentoring, and advocating for
+        ethical AI. My journey in <b>Aerospace Engineering</b> has taught me
+        precision and problem-solving skills, which I apply to software
+        development.
+      </p>
+      <a href="{{ profile.resume.url }}" class="btn btn-success">Download Resume</a>
+    </div>
+  </div>
+</section>
+
+<!-- About My Skill Section -->
+<section class="container py-5">
+  <div class="row">
+    <div class="col-12 text-center mb-5">
+      <h2>My Skills</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- Loop through the skills dynamically -->
+    {% for skill in skills %}
+      <div class="col-md-4 mb-4">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">{{ skill.name }}</h5>
+            <div class="progress mb-3">
+              <div
+                class="progress-bar"
+                role="progressbar"
+                aria-valuenow="{{ skill.progress }}"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                style="width: {{ skill.progress }}%"
+              >
+                {{ skill.progress }}%
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+
+<!-- Experience & Education Section -->
+<section class="container py-5">
+  <h2 class="text-center mb-4">Experience & Education</h2>
+  <div class="row">
+    <div class="col-md-6">
+      <h4>Experience</h4>
+      <ul class="list-group">
+        {% for experience in experiences %}
+          <li class="list-group-item">
+            <h4><strong>{{ experience.title }} - {{ experience.company }}</strong></h4> 
+            <h5><i>({{ experience.start_date }}{% if experience.end_date %} - {{ experience.end_date }}{% else %} - Ongoing{% endif %})
+            </i></h5><i>
+            {{ experience.description }}
+            </i></li><br>
+        {% empty %}
+          <li class="list-group-item">No experience added yet.</li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <h4>Education</h4>
+      <ul class="list-group">
+        {% for edu in education %}
+          <li class="list-group-item">
+            <h4><strong>{{ edu.degree }}</strong></h4><h5><i>
+            {{ edu.institution }} </i></h5><i>
+            {{ edu.description }}
+            </i></li><br>
+        {% empty %}
+          <li class="list-group-item">No education details added yet.</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
+
+<!-- Footer-->
+{% block footer %} 
+{% include "footer.html" %} 
+{% endblock footer %}
+</div>
+
