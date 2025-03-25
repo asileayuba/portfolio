@@ -1,14 +1,15 @@
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 class Home(models.Model):
     name = models.CharField(max_length=100, default="Asile Ayuba")
-    profile_image = models.ImageField(upload_to="home_images/")
+    profile_image = CloudinaryField("image")
 
 class Profile(models.Model):
     name = models.CharField(max_length=100, default="Asile Ayuba")
-    profile_image = models.ImageField(upload_to="profile_images/")
-    resume = models.FileField(upload_to="resumes/")
+    profile_image = CloudinaryField("image")  # Replaces ImageField
+    resume = models.FileField(upload_to="resumes/")  
     
     def __str__(self):
         return self.name
@@ -48,7 +49,7 @@ class Project(models.Model):
     technologies = models.CharField(max_length=225)
     github_link = models.URLField(blank=True, null=True)
     live_demo = models.URLField(blank=True, null=True)
-    image = models.ImageField(upload_to='projects/', blank=True, null=True)
+    image = CloudinaryField("image", blank=True, null=True)  # Replaces ImageField
     created_at = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
