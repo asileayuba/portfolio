@@ -1,0 +1,131 @@
+/* General Styles */
+body {
+  font-family: 'Roboto', sans-serif !important;
+  color: whitesmoke !important;
+  background-color: #1a1a1a !important; /* Dark mode background */
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Headings */
+h1, h2, h3 {
+  font-family: 'Raleway', sans-serif;
+}
+
+/* Typewriter Effect */
+#typewriter {
+  color: #0072ef;
+  font-weight: bold;
+}
+
+#cursor {
+  color: #0072ef;
+  animation: blink 0.8s linear infinite;
+}
+
+@keyframes blink {
+  0%, 100% {
+      opacity: 1;
+  }
+  50% {
+      opacity: 0;
+  }
+}
+
+/* Navbar */
+.navbar {
+  background-color: #1A1A1D;
+  transition: background 0.3s ease-in-out;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-link {
+  color: whitesmoke !important;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: #0072ef !important;
+}
+
+/* Hero Section */
+.underline {
+  color: white;
+  text-decoration: underline;
+  text-decoration-color: white;
+}
+
+/* About Page Hero Section */
+section.about-hero {
+  height: 30vh;
+  background-size: cover;
+}
+
+/* Profile Image Container */
+section .col-md-5 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+/* Profile Image */
+img.custom-img {
+  max-width: 50%;
+  height: auto;
+  border-radius: 50%; /* Circular profile image */
+  border: 4px solid whitesmoke;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: #0072ef;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+/* Back to Top Button */
+#backToTop {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  display: none;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#backToTop:hover {
+  background-color: #0056b3;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  background: #0f0f0f;
+  padding: 20px 0;
+  color: #aaa;
+}
+

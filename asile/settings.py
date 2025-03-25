@@ -12,7 +12,9 @@ SECRET_KEY = "django-insecure-3wuqguxy9urt(2+ab1*id+upr&+92ds6f__(ryeq+r_gr)-avk
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['.vercel.app', '127.0.0.1', '.now.sh']
+ALLOWED_HOSTS = []
+
+CSRF_TRUSTED_ORIGINS = []
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -22,6 +24,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "portfolio",
+    "whitenoise.runserver_nostatic",
 ]
 
 MIDDLEWARE = [
@@ -32,6 +35,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = "asile.urls"
@@ -86,6 +90,10 @@ USE_TZ = True
 STATIC_URL = "static/"
 STATIC_ROOT = BASE_DIR / "static"
 STATICFILES_DIRS = ["asile/static"]
+
+# White noise static 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATIC_ROOT = BASE_DIR / 'staicfiles'
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
