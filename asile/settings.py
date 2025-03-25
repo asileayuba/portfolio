@@ -12,9 +12,7 @@ SECRET_KEY = "django-insecure-3wuqguxy9urt(2+ab1*id+upr&+92ds6f__(ryeq+r_gr)-avk
 
 DEBUG = False
 
-ALLOWED_HOSTS = ["asile.up.railway.app", "https://asile.up.railway.app"]
-
-CSRF_TRUSTED_ORIGINS = ["asile.up.railway.app", "https://asile.up.railway.app"]
+ALLOWED_HOSTS = ["*"]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
