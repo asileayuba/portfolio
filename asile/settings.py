@@ -8,8 +8,6 @@ load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = "django-insecure-3wuqguxy9urt(2+ab1*id+upr&+92ds6f__(ryeq+r_gr)-avk"
-
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
@@ -58,20 +56,27 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "asile.wsgi.application"
 
-# Default Database (SQLite) and Postgresql(active)
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = os.getenv('SECRET_KEY')
+
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = os.getenv('DEBUG', 'False') == 'True'
+
+# PostgreSQL via DATABASE_URL, or fallback to SQLite if desired (commented here)
 DATABASES = {
-    "default": {
-        # "ENGINE": "django.db.backends.sqlite3",
-        # "NAME": BASE_DIR / "db.sqlite3",
-        
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.getenv("DB_NAME"),
-        "USER": os.getenv("DB_USER"),
-        "PASSWORD": os.getenv("DB_PASSWORD"),
-        "HOST": os.getenv("DB_HOST"),
-        "PORT": os.getenv("DB_PORT"),
-    }
+    'default': dj_database_url.config(
+        default=os.getenv('DATABASE_URL'),
+        conn_max_age=600,
+        ssl_require=True
+    )
 }
+
+# Optionally, to fallback to SQLite if DATABASE_URL is not set (for local dev):
+# if not os.getenv("DATABASE_URL"):
+#     DATABASES['default'] = {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
 
 
 

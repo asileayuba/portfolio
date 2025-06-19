@@ -1,4 +1,4 @@
-#!/Users/asileayuba/Developer/asile_portfolio/env/bin/python
+#!/Users/asileayuba/Developer/asile_portfolio/env/bin/python3.12
 # -*- coding: utf-8 -*-
 import re
 import sys
