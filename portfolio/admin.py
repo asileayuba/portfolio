@@ -6,7 +6,7 @@ class HomeAdmin(admin.ModelAdmin):
     list_display = ('name', 'profile_image')
 
 class ProfileAdmin(admin.ModelAdmin):
-    list_display = ('name', 'profile_image', 'resume')
+    list_display = ('name', 'profile_image')
 
 class ExperienceAdmin(admin.ModelAdmin):
     list_display = ('title', 'company', 'start_date', 'end_date')

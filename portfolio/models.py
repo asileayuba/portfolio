@@ -8,8 +8,7 @@ class Home(models.Model):
 
 class Profile(models.Model):
     name = models.CharField(max_length=100, default="Asile Ayuba")
-    profile_image = CloudinaryField("image")  # Replaces ImageField
-    resume = models.FileField(upload_to="resumes/")  
+    profile_image = CloudinaryField("image")  # Replaces ImageField 
     
     def __str__(self):
         return self.name
