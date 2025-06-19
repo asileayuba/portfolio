@@ -124,4 +124,19 @@ EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
 
 
+# 
+LOGGING = {
+    'version': 1,  # Logging format version (standard)
+    'disable_existing_loggers': False,  # Keeps Django's default loggers (like request errors)
 
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',  # Print logs to the console (terminal)
+        },
+    },
+
+    'root': {
+        'handlers': ['console'],  # Use the 'console' handler for root logger
+        'level': 'INFO',          # Minimum log level to show (DEBUG, INFO, WARNING, ERROR)
+    },
+}

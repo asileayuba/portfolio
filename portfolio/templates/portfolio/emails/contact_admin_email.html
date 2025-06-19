@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>New Contact Message</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+      color: #333;
+    }
+    .container {
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 30px;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #0072ef;
+      margin-top: 0;
+    }
+    .info {
+      margin-bottom: 15px;
+    }
+    .label {
+      font-weight: bold;
+    }
+    .footer {
+      margin-top: 30px;
+      font-size: 0.9em;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>📩 New Contact Message</h2>
+
+    <div class="info"><span class="label">Name:</span> {{ name }}</div>
+    <div class="info"><span class="label">Email:</span> {{ email }}</div>
+    <div class="info"><span class="label">Subject:</span> {{ subject }}</div>
+    <div class="info"><span class="label">Message:</span></div>
+    <div class="info" style="white-space: pre-line;">{{ message }}</div>
+
+    <div class="footer">
+      You received this message via your portfolio website.
+    </div>
+  </div>
+</body>
+</html>

@@ -61,6 +61,16 @@ h1, h2, h3 {
   text-decoration-color: white;
 }
 
+.hover-scale {
+  transition: transform 0.3s ease-in-out;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.hover-scale:hover {
+  transform: scale(1.09);
+}
+
 /* About Page Hero Section */
 section.about-hero {
   height: 30vh;

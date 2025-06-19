@@ -4,16 +4,21 @@
 {% block content %}
 <!-- Home Section Design -->
 <section class="home" id="home">
-    <div class="container-fluid py-5">
+    <div class="container-fluid py-3">
         <div class="row align-items-center">
-            <!-- Left Column (Text Content) -->
-            <div class="col-md-6 text-center text-md-start">
+            <!-- Left Column (Image) -->
+            <div class="col-md-6 mt-4 text-center">
+                <img src="{{ home.profile_image.url }}" alt="Home-Image" class="img-fluid rounded-circle hover-scale d-inline-block">
+            </div>
+
+            <!-- Right Column (Text Content) -->
+            <div class="col-md-6 text-center text-md-start py-5">
                 <h3>Hello, It's Me</h3>
                 <h1>Asile Ayuba</h1>
                 <h3>And I'm <span id="typewriter"></span
                     ><span id="cursor"></span></h3>
                 <p class="lead">
-                    I'm a backend developer focused on building efficient systems with clean code and seamless performance. 
+                    I'm a full-stack developer focused on building efficient systems with clean code and seamless performance. 
                     Let’s create something impactful together!
                 </p>
                 <div class="social-media my-4 d-flex flex-wrap gap-2 justify-content-lg-start justify-content-center">
@@ -33,10 +38,7 @@
                 <a href="{% static 'files/asile_full_stack_dev.pdf' %}" class="btn btn-success">Download Resume</a>   
             </div>
 
-            <!-- Right Column (Image) -->
-            <div class="col-md-6 mt-4 text-center">
-                    <img src="{{ home.profile_image.url }}" alt="Home-Image" class="img-fluid rounded-circle">
-              </div>
+            
         </div>
     </div>
 </section>
